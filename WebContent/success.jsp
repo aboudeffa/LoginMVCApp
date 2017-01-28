@@ -10,10 +10,14 @@
 </head>
 <body>
 	<h3>Login successful !</h3>
-	<%
+	<%--
     User user = (User) request.getAttribute( "user" );
-%>
+	--%>
+	<jsp:useBean id="user" class="org.ambdev.campus.dto.User" scope="request">
+		<jsp:setProperty property="userName" name="user" value="NewUser"/>
+	</jsp:useBean>
 	Hello
-	<%=user.getUserName()%>
+	<%--=user.getUserName()--%>
+	<jsp:getProperty property="userName" name="user"/>
 </body>
 </html>
